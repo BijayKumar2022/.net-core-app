@@ -1,0 +1,30 @@
+@model MvcCustomAuthenticationFilter_Demo.Models.UserLogin  
+   
+@{  
+    ViewBag.Title = "Login";  
+}  
+   
+@using (Html.BeginForm())  
+{  
+    @Html.AntiForgeryToken()  
+    <div class="panel custom-panel">  
+        <div class="panel-heading">  
+            <h3>Log in</h3>  
+        </div>  
+        <div class="panel-body">  
+            <div class="form-group">  
+                @Html.LabelFor(m => m.first_name)  
+                @Html.TextBoxFor(m => m.first_name, new { @class = "form-control" })  
+                @Html.ValidationMessageFor(m => m.first_name)  
+            </div>  
+            <div class="form-group">  
+                @Html.LabelFor(m => m.Password)  
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })  
+                @Html.ValidationMessageFor(m => m.Password)  
+            </div>  
+            <div class="form-group">  
+                <button type="submit" class="btn btn-primary">Login</button>  
+            </div>  
+        </div>  
+    </div>  
+}  
